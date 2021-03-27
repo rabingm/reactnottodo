@@ -1,0 +1,25 @@
+### get api
+GET http://localhost:9000/api/vi
+
+### get api
+POST  http://localhost:9000/api/vi
+Content-Type: application/json
+
+{
+"task":"learning to code", 
+"hr":"15"
+
+}
+
+### get api
+PATCH  http://localhost:9000/api/vi
+
+### get api
+PUT  http://localhost:9000/api/vi
+
+### get api
+GET http://localhost:9000/api/vi
+
+
+### get api
+DELETE  http://localhost:9000/api/vi
