@@ -1,9 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 const app = express();
-const PORT = 9000;
-import path from "path";
+const PORT = 8000;
 import bodyParser from "body-parser";
 import router from "./router.js";
+
+import mongoClient from "./config/db.js";
+
+mongoClient();
 
 // create application/x-www-form-urlencoded parser
 var jsonParser = bodyParser.json(bodyParser.urlencoded({ extended: false }));
@@ -11,9 +16,7 @@ var jsonParser = bodyParser.json(bodyParser.urlencoded({ extended: false }));
 // create application/json parser
 app.use(bodyParser.json());
 
-const __dirname = path.resolve();
-
-app.use("/api/vi", router);
+app.use("/api/v1", router);
 
 app.listen(PORT, (error) => {
   error && console.log(error);
