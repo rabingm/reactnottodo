@@ -43,7 +43,7 @@ else{
 
 app.use((error, req, res, next) => {
   console.log(error)
-  res.code(500).send(error.message)
+  // res.code(500).send(error.message)
 })
 
 app.listen(PORT, (error) => {
