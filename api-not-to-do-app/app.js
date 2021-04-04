@@ -32,8 +32,12 @@ const __dirname = path.resolve()
       res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'))
     })
   }
+
+  
   else{ 
-    res.send("Welcome to my app")
+    app.get("/", (req, res) =>{
+      res.send("Working")
+    })
   }
 
 
