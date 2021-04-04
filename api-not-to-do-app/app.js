@@ -25,20 +25,25 @@ app.use('/api/v1', router)
 
 const __dirname = path.resolve()
 
-  if (process.env.NODE_ENV !=="production"){
-    app.use(express.static(path.join(__dirname, "/react-not-to-do-list/build")))
+if (process.env.NODE_ENV ==="production"){
+    app.use(express.static(path.join(__dirname, "/react-not-to-do-list/build")));
 
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'))
+      res.sendFile(path.join(__dirname, '/react-not-to-do-list/build/index.html'));
     })
   }
-  else
- { res.send("Welcome to my app")}
+
+  
+else{ 
+    app.get("/", (req, res) =>{
+      res.send("Working")
+    })
+  }
 
 
 app.use((error, req, res, next) => {
   console.log(error)
-  res.code(500).send(error.message)
+  // res.code(500).send(error.message)
 })
 
 app.listen(PORT, (error) => {
