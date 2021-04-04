@@ -4,10 +4,10 @@ console.log(process.env.MONGO_CLIENT);
 
 const mongoClient = async () => {
 
-	const connStr = process.env.PROD_MONGO_CLIENT
+	// const connStr = process.env.PROD_MONGO_CLIENT
 	
 
-	// const connStr = process.env.NODE_ENV ==="production" ? process.env.PROD_MONGO_CLIENT : process.env.MONGO_CLIENT
+	const connStr = process.env.NODE_ENV ==="production" ? process.env.PROD_MONGO_CLIENT : process.env.MONGO_CLIENT
 
 	try {
 		const con = await mongoose.connect(connStr, {
@@ -19,7 +19,7 @@ const mongoClient = async () => {
 
 		if (con) {
 			console.log("MongoDB is connected");
-			console.log(process.env.NODE_ENV)
+			// console.log(process.env.NODE_ENV)
 		}
 	} catch (error) {
 		console.log(error);
